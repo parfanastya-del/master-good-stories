@@ -1,0 +1,1680 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Мастерская добрых историй — Воскресная школа на Гороховом поле</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+    --cream: #f8f2e8;
+    --cream-light: #fffaf3;
+    --blue: #a9c3d5;
+    --blue-light: #dce8ef;
+    --orange: #c98d68;
+    --orange-light: #efd2bd;
+    --brown: #604b40;
+    --text: #514a45;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(248,242,232,.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(96,75,64,.15);
+}
+
+.header-inner {
+    max-width: 1150px;
+    margin: auto;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--brown);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.logo small {
+    display: block;
+    margin-top: 6px;
+    color: var(--orange);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+nav button {
+    border: 0;
+    background: transparent;
+    color: var(--brown);
+    padding: 10px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: .3s;
+}
+
+nav button:hover,
+nav button.active {
+    background: var(--blue-light);
+    color: #456275;
+}
+
+/* ================= PAGES ================= */
+
+.page {
+    display: none;
+    animation: appear .5s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 25px;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px 20px;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+        rgba(169,195,213,.38),
+        transparent 28%),
+
+        radial-gradient(circle at 85% 75%,
+        rgba(201,141,104,.18),
+        transparent 30%),
+
+        var(--cream);
+}
+
+.hero-box {
+    max-width: 900px;
+    padding: 65px 45px;
+    background: rgba(255,250,243,.75);
+    border: 1px solid rgba(96,75,64,.2);
+    box-shadow: 0 20px 50px rgba(96,75,64,.08);
+    position: relative;
+}
+
+.hero-box:before,
+.hero-box:after {
+    position: absolute;
+    color: var(--orange);
+    font-size: 28px;
+}
+
+.hero-box:before {
+    content: "✦";
+    top: 18px;
+    left: 22px;
+}
+
+.hero-box:after {
+    content: "✦";
+    bottom: 18px;
+    right: 22px;
+}
+
+.eyebrow {
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--brown);
+}
+
+h1 {
+    font-size: clamp(50px, 7vw, 82px);
+    line-height: .94;
+    font-weight: 600;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: 25px auto 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: #6b5d55;
+}
+
+.ornament {
+    margin: 25px 0;
+    color: var(--orange);
+    letter-spacing: 10px;
+}
+
+/* ================= HEADINGS ================= */
+
+.section-heading {
+    max-width: 760px;
+    text-align: center;
+    margin: 0 auto 50px;
+}
+
+.section-heading h2 {
+    font-size: 50px;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: #716760;
+}
+
+/* ================= CARDS ================= */
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.card {
+    background: var(--cream-light);
+    padding: 35px;
+    border: 1px solid rgba(96,75,64,.12);
+    box-shadow: 0 12px 35px rgba(96,75,64,.06);
+}
+
+.card.blue {
+    background: var(--blue-light);
+}
+
+.card.orange {
+    background: #f3dfd1;
+}
+
+.card h3 {
+    font-size: 31px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    margin-bottom: 13px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 21px;
+}
+
+/* ================= PHOTO OF TEMPLE ================= */
+
+.temple-photo {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    display: block;
+    margin: 45px 0 15px;
+    border: 8px solid var(--cream-light);
+    box-shadow: 0 15px 40px rgba(96,75,64,.12);
+}
+
+.photo-caption {
+    text-align: center;
+    color: #786e67;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+}
+
+/* ================= QUOTE ================= */
+
+.quote {
+    margin: 65px 0;
+    padding: 55px 30px;
+    background: var(--blue-light);
+    border-left: 5px solid var(--orange);
+    border-right: 5px solid var(--orange);
+    text-align: center;
+}
+
+.quote p {
+    max-width: 780px;
+    margin: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    line-height: 1.35;
+    color: var(--brown);
+}
+
+/* ================= SCHOOL ================= */
+
+.school-intro {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.school-intro p {
+    font-size: 17px;
+}
+
+.events {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.event {
+    padding: 30px;
+    background: var(--cream-light);
+    border-top: 4px solid var(--orange);
+    box-shadow: 0 10px 30px rgba(96,75,64,.06);
+}
+
+.event-date {
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.event h3 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+/* ================= TEACHERS ================= */
+
+.people {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.person {
+    background: var(--cream-light);
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(96,75,64,.1);
+}
+
+.person-photo {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--blue);
+    color: white;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+}
+
+.person h3 {
+    font-size: 28px;
+}
+
+.person p {
+    color: #776c65;
+}
+
+/* ================= STUDENTS GALLERY ================= */
+
+.students {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.student {
+    background: var(--cream-light);
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(96,75,64,.07);
+}
+
+.student-photo {
+    height: 190px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-light),
+            #f2dfd2
+        );
+
+    color: var(--brown);
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+}
+
+.student p {
+    padding: 10px 5px 5px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+}
+
+/* ================= BUTTON ================= */
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 27px;
+
+    background: var(--orange);
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: .3s;
+}
+
+.button:hover {
+    background: #aa7252;
+    transform: translateY(-2px);
+}
+
+/* ================= SHOP ================= */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.product {
+    overflow: hidden;
+    background: var(--cream-light);
+    box-shadow: 0 12px 35px rgba(96,75,64,.08);
+    transition: .3s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    height: 220px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-light),
+            #f1e2d5
+        );
+
+    font-size: 70px;
+}
+
+.product-info {
+    padding: 27px;
+}
+
+.product h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.author {
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 10px;
+}
+
+/* ================= FEATURED SHOPPER ================= */
+
+.featured {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 45px;
+    align-items: center;
+
+    background: #e5edf1;
+    padding: 45px;
+}
+
+.shopper-photo {
+    width: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    background:
+        linear-gradient(
+            135deg,
+            #dce8ef,
+            #f0d8c7
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    color: var(--brown);
+}
+
+.featured-text h2 {
+    font-size: 54px;
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+.price {
+    margin-top: 20px;
+    color: var(--orange);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+/* ================= AUTHOR ================= */
+
+.author-site {
+    text-align: center;
+    padding-top: 40px;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+}
+
+.author-site span {
+    color: var(--orange);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    margin-top: 30px;
+    padding: 45px 20px;
+
+    background: #5d514b;
+    color: #eee4da;
+
+    text-align: center;
+}
+
+.footer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+}
+
+footer p {
+    font-size: 12px;
+    opacity: .8;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 800px) {
+
+    .header-inner {
+        flex-direction: column;
+    }
+
+    .two-columns,
+    .events,
+    .people,
+    .products,
+    .featured {
+        grid-template-columns: 1fr;
+    }
+
+    .students {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-box {
+        padding: 45px 25px;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+
+    .section-heading h2 {
+        font-size: 40px;
+    }
+
+    .featured {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<div class="header-inner">
+
+<a href="#" class="logo" onclick="showPage('home');return false;">
+    Мастерская добрых историй
+    <small>воскресная школа на Гороховом поле</small>
+</a>
+
+<nav>
+
+<button id="nav-home"
+        class="active"
+        onclick="showPage('home')">
+    Храм
+</button>
+
+<button id="nav-school"
+        onclick="showPage('school')">
+    Наша школа
+</button>
+
+<button id="nav-shop"
+        onclick="showPage('shop')">
+    Лавка
+</button>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     СТРАНИЦА 1 — ХРАМ
+===================================================== -->
+
+<main id="home" class="page active">
+
+<section class="hero">
+
+<div class="hero-box">
+
+<div class="eyebrow">
+    Гороховое поле · Москва
+</div>
+
+<h1>
+    Место,<br>
+    где растёт<br>
+    добро
+</h1>
+
+<div class="ornament">
+    ✦ ✧ ✦
+</div>
+
+<p>
+    История храма, воскресной школы и людей,
+    которые каждый день наполняют это место
+    теплом, творчеством и добрыми делами.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+    Наш храм
+</div>
+
+<h2>
+    Храм на Гороховом поле
+</h2>
+
+<p>
+    Церковь Вознесения Господня на Гороховом поле —
+    один из московских храмов с богатой историей
+    и выразительной архитектурой.
+</p>
+
+</div>
+
+
+<!--
+    ФОТО ХРАМА
+
+    Вместо ссылки ниже можно поставить
+    локальный файл:
+
+    images/hram.jpg
+-->
+
+<img
+    class="temple-photo"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Church_of_the_Ascension_in_Gorohovo_pole.jpg/1280px-Church_of_the_Ascension_in_Gorohovo_pole.jpg"
+    alt="Церковь Вознесения Господня на Гороховом поле"
+>
+
+<div class="photo-caption">
+    Церковь Вознесения Господня на Гороховом поле, Москва
+</div>
+
+
+<div class="two-columns" style="margin-top:45px;">
+
+<div class="card">
+
+<div class="icon">✦</div>
+
+<h3>
+    Немного истории
+</h3>
+
+<p>
+    Каменная церковь Вознесения Господня
+    на Гороховом поле была построена
+    в конце XVIII века.
+</p>
+
+<p>
+    Храм относится к числу памятников московской
+    архитектуры и связан с историей района
+    Горохового поля.
+</p>
+
+<p>
+    Его архитектурный облик напоминает о Москве
+    классической эпохи — спокойной, гармоничной
+    и торжественной.
+</p>
+
+</div>
+
+
+<div class="card blue">
+
+<div class="icon">♡</div>
+
+<h3>
+    Храм сегодня
+</h3>
+
+<p>
+    Сегодня храм остаётся местом молитвы,
+    общения и духовной жизни.
+</p>
+
+<p>
+    Здесь встречаются семьи, дети, преподаватели
+    и прихожане разных поколений.
+</p>
+
+<p>
+    Именно рядом с храмом появляется пространство,
+    где дети могут не только узнавать новое,
+    но и раскрывать свои способности.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="quote">
+
+<p>
+    «Самые важные истории начинаются
+    с места, куда хочется возвращаться».
+</p>
+
+</div>
+
+
+<div class="two-columns">
+
+<div class="card orange">
+
+<h3>
+    Почему Гороховое поле?
+</h3>
+
+<p>
+    Это название стало частью атмосферы нашей школы.
+    Здесь соединяются история старой Москвы,
+    семейные традиции и современное детское творчество.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    От храма — к творчеству
+</h3>
+
+<p>
+    Воскресная школа стала местом, где дети могут
+    общаться, создавать мультфильмы, рисовать,
+    придумывать героев и воплощать собственные идеи.
+</p>
+
+<p>
+    Так родилась наша творческая мастерская —
+    место для добрых историй.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="author-site">
+    автор сайта <span>Парфёнова Анастасия</span>
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     СТРАНИЦА 2 — ШКОЛА
+===================================================== -->
+
+<main id="school" class="page">
+
+<section class="hero" style="min-height:530px;">
+
+<div class="hero-box">
+
+<div class="eyebrow">
+    Воскресная школа
+</div>
+
+<h1>
+    Мастерская<br>
+    добрых историй
+</h1>
+
+<div class="ornament">
+    ✦ ✧ ✦
+</div>
+
+<p>
+    Здесь идеи превращаются в рисунки,
+    рисунки — в мультфильмы,
+    а обычное воскресенье — в маленькое приключение.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+    Наша школа
+</div>
+
+<h2>
+    Место для творчества
+</h2>
+
+<p>
+    Наша воскресная школа объединяет занятия,
+    творчество, дружбу и знакомство с православной
+    культурой.
+</p>
+
+</div>
+
+
+<div class="two-columns">
+
+<div class="card blue">
+
+<div class="icon">☀</div>
+
+<h3>
+    Учимся
+</h3>
+
+<p>
+    Дети узнают больше об истории, культуре,
+    традициях и праздниках.
+</p>
+
+<p>
+    Важная часть занятий — разговор о доброте,
+    внимании к другим людям и ответственности
+    за свои поступки.
+</p>
+
+</div>
+
+
+<div class="card orange">
+
+<div class="icon">✎</div>
+
+<h3>
+    Создаём
+</h3>
+
+<p>
+    На творческих занятиях появляются рисунки,
+    персонажи, истории и мультфильмы.
+</p>
+
+<p>
+    Каждый ребёнок может попробовать себя
+    в роли художника, автора или создателя
+    собственной истории.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ПРЕПОДАВАТЕЛИ -->
+
+<section class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+    Наши преподаватели
+</div>
+
+<h2>
+    Ирина и Алла Николаевна
+</h2>
+
+<p>
+    Два человека, которые помогают детям
+    превращать любопытство и фантазию
+    в настоящие творческие работы.
+</p>
+
+</div>
+
+
+<div class="people">
+
+<div class="person">
+
+<div class="person-photo">
+    И
+</div>
+
+<h3>
+    Ирина
+</h3>
+
+<p>
+    Преподаватель творческой мастерской.
+    Помогает детям придумывать истории,
+    раскрывать фантазию и работать вместе.
+</p>
+
+</div>
+
+
+<div class="person">
+
+<div class="person-photo">
+    А
+</div>
+
+<h3>
+    Алла Николаевна
+</h3>
+
+<p>
+    Преподаватель воскресной школы.
+    Помогает ребятам узнавать новое
+    и с интересом участвовать в жизни школы.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- СОБЫТИЯ -->
+
+<section class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+    Жизнь школы
+</div>
+
+<h2>
+    Что у нас происходит
+</h2>
+
+</div>
+
+
+<div class="events">
+
+<article class="event">
+
+<div class="event-date">
+    Творчество
+</div>
+
+<h3>
+    Мультфильмы
+</h3>
+
+<p>
+    Мы придумываем героев, создаём сюжеты
+    и превращаем рисунки в маленькие истории.
+</p>
+
+</article>
+
+
+<article class="event">
+
+<div class="event-date">
+    Встречи
+</div>
+
+<h3>
+    Праздники
+</h3>
+
+<p>
+    Вместе готовимся к праздникам,
+    устраиваем творческие встречи
+    и показываем свои работы.
+</p>
+
+</article>
+
+
+<article class="event">
+
+<div class="event-date">
+    Добрые дела
+</div>
+
+<h3>
+    Творчество для других
+</h3>
+
+<p>
+    Учимся делать вещи, которые могут
+    порадовать родителей, друзей
+    и других людей.
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- ГАЛЕРЕЯ ДЕТЕЙ -->
+
+<section class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+    Наша команда
+</div>
+
+<h2>
+    Лица нашей мастерской
+</h2>
+
+<p>
+    Здесь появятся фотографии учеников
+    воскресной школы. Каждый участник —
+    часть нашей общей истории.
+</p>
+
+</div>
+
+
+<div class="students">
+
+
+<!--
+    ВСТАВЛЯЙТЕ ФОТОГРАФИИ СЮДА.
+
+    Например:
+
+    <img src="images/masha.jpg"
+         class="student-photo"
+         alt="Маша">
+
+    Ниже пока стоят красивые заглушки.
+-->
+
+
+<div class="student">
+
+<div class="student-photo">
+    Фото
+</div>
+
+<p>
+    Имя ученика
+</p>
+
+</div>
+
+
+<div class="student">
+
+<div class="student-photo">
+    Фото
+</div>
+
+<p>
+    Имя ученика
+</p>
+
+</div>
+
+
+<div class="student">
+
+<div class="student-photo">
+    Фото
+</div>
+
+<p>
+    Имя ученика
+</p>
+
+</div>
+
+
+<div class="student">
+
+<div class="student-photo">
+    Фото
+</div>
+
+<p>
+    Имя ученика
+</p>
+
+</div>
+
+
+<div class="student">
+
+<div class="student-photo">
+    Фото
+</div>
+
+<p>
+    Имя ученика
+</p>
+
+</div>
+
+
+<div class="student">
+
+<div class="student-photo">
+    Фото
+</div>
+
+<p>
+    Имя ученика
+</p>
+
+</div>
+
+
+<div class="student">
+
+<div class="student-photo">
+    Фото
+</div>
+
+<p>
+    Имя ученика
+</p>
+
+</div>
+
+
+<div class="student">
+
+<div class="student-photo">
+    Фото
+</div>
+
+<p>
+    Имя ученика
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- YOUTUBE -->
+
+<section class="container">
+
+<div class="card blue" style="text-align:center;">
+
+<div class="eyebrow">
+    Смотрите наши работы
+</div>
+
+<h2 style="font-size:50px;">
+    YouTube-канал
+</h2>
+
+<p style="max-width:650px;margin:15px auto;">
+
+    Здесь можно смотреть мультфильмы,
+    записи мероприятий, творческие проекты
+    и другие видео нашей воскресной школы.
+
+</p>
+
+<!-- ЗАМЕНИТЕ # НА ССЫЛКУ КАНАЛА -->
+
+<a href="#" target="_blank" class="button">
+    Перейти на YouTube
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     СТРАНИЦА 3 — ЛАВКА
+===================================================== -->
+
+<main id="shop" class="page">
+
+<section class="hero" style="min-height:520px;">
+
+<div class="hero-box">
+
+<div class="eyebrow">
+    Небольшая лавка
+</div>
+
+<h1>
+    Вещи<br>
+    с характером
+</h1>
+
+<div class="ornament">
+    ✦ ✧ ✦
+</div>
+
+<p>
+    Авторские работы учеников,
+    созданные руками и сердцем.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+    Главная вещь нашей лавки
+</div>
+
+<h2>
+    Расписной шопер
+</h2>
+
+<p>
+    Не просто сумка, а маленькая история,
+    которую можно взять с собой.
+</p>
+
+</div>
+
+
+<div class="featured">
+
+
+<div class="shopper-photo">
+
+<!--
+    ЗАМЕНИТЕ ЭТОТ БЛОК НА ФОТО
+    НАСТОЯЩЕГО ШОПЕРА:
+
+    <img src="images/shopper.jpg"
+         style="width:100%;height:430px;object-fit:cover;">
+-->
+
+Расписной шопер
+
+</div>
+
+
+<div class="featured-text">
+
+<div class="eyebrow">
+    Авторская работа ученика
+</div>
+
+<h2>
+    Шопер,<br>
+    который<br>
+    не похож<br>
+    на другие
+</h2>
+
+<p>
+    Каждый рисунок на таком шопере создаётся вручную.
+    Поэтому это не просто полезная вещь —
+    это маленькая авторская работа.
+</p>
+
+<p>
+    Его можно брать на прогулку, в школу,
+    за покупками или подарить человеку,
+    которому хочется подарить что-то действительно
+    особенное.
+</p>
+
+<p>
+    Нам особенно нравится идея, что детское творчество
+    не остаётся только на полке — оно становится
+    частью повседневной жизни.
+</p>
+
+<div class="price">
+    Стоимость — уточняется
+</div>
+
+<a href="#" class="button">
+    Хочу такой шопер
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ТОВАРЫ -->
+
+<section class="container">
+
+<div class="section-heading">
+
+<div class="eyebrow">
+    Другие работы
+</div>
+
+<h2>
+    Лавка мастерской
+</h2>
+
+<p>
+    Здесь постепенно будут появляться новые работы
+    наших учеников.
+</p>
+
+</div>
+
+
+<div class="products">
+
+
+<article class="product">
+
+<div class="product-image">
+    👜
+</div>
+
+<div class="product-info">
+
+<div class="author">
+    Авторская работа
+</div>
+
+<h3>
+    Расписной шопер
+</h3>
+
+<p>
+    Практичная сумка с уникальной ручной росписью.
+    Каждый экземпляр имеет свой характер.
+</p>
+
+<a href="#" class="button">
+    Узнать больше
+</a>
+
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="product-image">
+    ✿
+</div>
+
+<div class="product-info">
+
+<div class="author">
+    Работа ученика
+</div>
+
+<h3>
+    Праздничная открытка
+</h3>
+
+<p>
+    Тёплая открытка ручной работы,
+    созданная специально для тех,
+    кому хочется сказать добрые слова.
+</p>
+
+<a href="#" class="button">
+    Узнать больше
+</a>
+
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="product-image">
+    ♡
+</div>
+
+<div class="product-info">
+
+<div class="author">
+    Работа ученика
+</div>
+
+<h3>
+    Маленький сувенир
+</h3>
+
+<p>
+    Небольшая авторская вещь,
+    которая может стать памятным подарком.
+</p>
+
+<a href="#" class="button">
+    Узнать больше
+</a>
+
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="product-image">
+    ✦
+</div>
+
+<div class="product-info">
+
+<div class="author">
+    Работа ученика
+</div>
+
+<h3>
+    Декоративная работа
+</h3>
+
+<p>
+    Украшение, созданное в нашей мастерской
+    с фантазией и вниманием к деталям.
+</p>
+
+<a href="#" class="button">
+    Узнать больше
+</a>
+
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="product-image">
+    ☼
+</div>
+
+<div class="product-info">
+
+<div class="author">
+    Работа ученика
+</div>
+
+<h3>
+    Подарочный набор
+</h3>
+
+<p>
+    Несколько небольших работ,
+    объединённых общей творческой идеей.
+</p>
+
+<a href="#" class="button">
+    Узнать больше
+</a>
+
+</div>
+
+</article>
+
+
+<article class="product">
+
+<div class="product-image">
+    ❀
+</div>
+
+<div class="product-info">
+
+<div class="author">
+    Работа ученика
+</div>
+
+<h3>
+    Творческий сувенир
+</h3>
+
+<p>
+    Небольшая вещь, сделанная руками
+    ученика нашей школы.
+</p>
+
+<a href="#" class="button">
+    Узнать больше
+</a>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="footer-title">
+    Мастерская добрых историй
+</div>
+
+<p>
+    Воскресная школа на Гороховом поле
+</p>
+
+<p style="margin-top:10px;">
+    Творчество · Доброта · Дружба
+</p>
+
+<p style="margin-top:15px;">
+    © 2026
+</p>
+
+</footer>
+
+
+<script>
+
+function showPage(pageId) {
+
+    document.querySelectorAll('.page').forEach(function(page) {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(pageId).classList.add('active');
+
+    document.querySelectorAll('nav button').forEach(function(button) {
+        button.classList.remove('active');
+    });
+
+    document.getElementById('nav-' + pageId).classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+</script>
+
+</body>
+</html>
+```
